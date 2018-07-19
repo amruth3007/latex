@@ -1,0 +1,521 @@
+\documentclass[8pt,a4paper]{article}
+\newcommand\Myperm[2][n]{\prescript{#1\mkern-2.5mu}{}P_{#2}}
+\newcommand\Mycomb[2][n]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+
+\begin{document}
+\title{CGT ASSIGNMENT-1}
+\author{{AMURU HAREESH - CSE15U003\\D.V.ASHOK SAI RAM - CSE15U009\\N.SIVA HARISH DUTT - CSE15U017\\J YASWANTH RAJ - ITY15U006\\Submitted to:\textbf{Dr.K.KUNWAR SINGH}}}
+\maketitle
+
+\section{}
+
+\textbf{1.Eleven scientists are working on a secret project. They wish to lock up the documents
+in a cabinet so that the cabinet can be opened if and only if six or more of the scientists
+are present. What is the smallest number of locks needed? What is the smallest number
+of keys to the locks each scientist must carry?}\\
+
+\textbf{SOL:}\\The minimal solution uses 462 locks and 252 keys per scientist.\\
+The lock can be opened with m= 6 parts over n= 11.\\
+No way to open the lock with less than m=6 parts over n= 11.\\
+\textbf{For smallest number of locks needed:}
+For each group of five scientists, there must be at least one lock for which they do not have the key, but for which every otherscientist does have the key.\\There are $\Mycomb[11]{5}=462$groups of five scientists, There must be atleast 462 locks.If generalise,we get $\Mycomb[n]{m-1}$.\\
+\textbf{ For the smallest number of keys to the locks each scientist must carry:}
+Similary, each scientist must hold at least one key for every group of five scientists of which they are not a member.\\There are $\Mycomb[10]{5}$= 252 such group.If generalise,we get  $\Mycomb[n-1]{m-1}$.
+
+
+\section{}
+
+\textbf{2. We need to choose a team of 11 from a pool of 15 players and also select a captain. Find
+the number of different ways this can be done?}\\
+
+\textbf{SOL:}\\First,we will choose 11 players from a pool of 15 players in $\Mycomb[15]{11}$=1365 ways.Then from $\Mycomb[15]{11}$=1365 choose one captian in $\Mycomb[15]{11}$ * $\Mycomb[11]{1}$ways.\\
+
+
+\section{}
+
+\textbf{3. In how many ways can four numbers be selected from the numbers 1,2,3, ..., 1000 such
+that their sum is divisible by 4?}\\
+
+\textbf{SOL:}\\From numbers 1,2,3,.....,1000\\Numbers whose modulus 4 is zero = 250 -----A\\Numbers whose modulus 4 is one = 250-----B\\Numbers whose modulus 4 is two = 250 -------C \\ Numbers whose modulus 4 is three = 250 ------D\\Choose four numbers from A = $\Mycomb[250]{4}$\\Choose four numbers from B = $\Mycomb[250]{4}$\\Choose four numbers from C = $\Mycomb[250]{4}$ \\Choose four numbers from D = $\Mycomb[250]{4}$\\Choose two numbers each from B and D = $\Mycomb[250]{2}$ * $\Mycomb[250]{2}$\\Choose two numbers each from A and C = $\Mycomb[250]{2}$ * $\Mycomb[250]{2}$\\Choose two numbers from C and two each from B and D = $\Mycomb[250]{2}$ * $\Mycomb[250]{2}$ * $\Mycomb[250]{1}$\\Choose two numbers from B and two each from A and C = $\Mycomb[250]{2}$ * $\Mycomb[250]{2}$ * $\Mycomb[250]{1}$\\Choose two numbers from D and two each from A and C = $\Mycomb[250]{2}$ * $\Mycomb[250]{2}$ * $\Mycomb[250]{1}$\\Total number of ways = 4 * $\Mycomb[250]{4}$ + 2 * $\Mycomb[250]{2}$ * $\Mycomb[250]{2}$ + $\Mycomb[250]{2}$ * $\Mycomb[250]{2}$ * $\Mycomb[250]{1}$ + $\Mycomb[250]{2}$ * $\Mycomb[250]{2}$ * $\Mycomb[250]{1}$ + $\Mycomb[250]{2}$ * $\Mycomb[250]{2}$ * $\Mycomb[250]{1}$\\ 
+
+
+\section{}
+
+\textbf{4. Suppose warden wants to schedule special dinners (non distinct) three times each week.
+How many ways he can make this?}\\
+
+\textbf{SOL:}\\Warden schedules special dinners which are non distinct three times(3 days) a week(7 days). so,he selects three days from a group of seven days.\\Therefore, $\Mycomb[n+r-1]{r}$=35ways,here n=3,r=7.Since they are non distinct we can select in 35 ways . \\
+
+
+\section{}
+
+\textbf{5. Suppose warden wants to schedule north indian special dinners,south indian special din-
+ners and western special dinners each week. How many ways he can make this?}\\
+
+\textbf{SOL:}\\Warden schedules special dinners which are distinct three times(3 days) a week(7 days). so,he selects three days from a group of seven days.\\Therefore, $\Myperm[n]{r}$=210 ways,here n=7,r=3.\\
+
+
+\section{}
+
+\textbf{6. In how many ways can three examinations be scheduled within five day period so that no
+two examination are scheduled on the same day. Assume one day maximum one exam?}\\
+
+\textbf{SOL:}\\Assuming one day has one exam maximum,there are five(5)days within which three (3)examinations should be scheduled.\\ So,number of days = 5
+No two exams on the same day\\
+So no  of ways possible following  the given conditions = $\Myperm[5]{3}$=60\\
+
+
+\section{}
+
+\textbf{7. From n distict integers,two groups of integers are to be selected with k1 integers in the
+first group and k2 integers in second group,where k1 and k2 are fixed and k1 + k2 <= n.
+In how many ways can the selection be made such that the smallest integer in the first
+group is larger than the larger integer in the second group?}\\
+
+\textbf{SOL:}\\First select first $k_2$elements from a group of n elements and then select next $k_1$elements from remaining n-$k_2$ elements.\\
+\\Number of ways are = $\Mycomb[k2]{k2}$ * $\Mycomb[n-k2]{k1}$\\
+\\The next possibility is we select k2 elements from the first k2+1 elements and the remaining k1
+from n-(k2+1) elements.\\
+Number of ways are = $\Mycomb[k2 +1]{k2}$ * $\Mycomb[n-(k2+1)]{k1}$\\
+The process goes on like this till we reach a position where k2 elements are selected from the first
+n-k1 elements and k1 are selected from the remaining k1 elements.
+Therefore,total no. of ways is:\\
+\\= $\Mycomb[k2]{k2}$ * $\Mycomb[n-k2]{k1}$ + $\Mycomb[k2 +1]{k2}$ * $\Mycomb[n-(k2 +1)]{k1}$ + $\Mycomb[k2 +2]{k2}$ * $\Mycomb[n-(k2 +2)]{k1}$ + ...... +$\Mycomb[n-k1]{k2}$ * $\Mycomb[k1]{k1}$\\
+
+\section{}
+
+\textbf{8. prove that (2n)!=2^n and (3n)!=(2^n + 3^n) are integers?}\\
+
+\textbf{SOL:}(a)Let total number of things = 2n\\
+\\Let total number of kinds = n\\
+\\Let total number of elements of each kind = 2\\
+\\Total number of permutations\\ = (2n)! / (2!) .(2!) .(2!) ....(2!)[n times]\\
+\\= (2n)!/(2).(2).(2).......(2)[n times]\\
+\\= (2n)!/$2^{n}$ =n\\
+\\Since, total number of permutations is always an integer hence (2n)!/$2^{n}$=n is an integer.\\
+\\(b)Let total number of things = 3n\\
+\\Let total number of kinds = n\\
+\\Let total number of elements of each kind = 3\\
+\\Total number of permutations = (3n)!/(3!).(3!).(3!)....(3!)[ntimes]\\
+\\= (3n)!/(1.2.3).(1.2.3).(1.2.3).......(1.2.3)[ntimes]\\
+\\= (3n)!/$2^{n}$ * $3^{n}$=3n\\
+\\Since, total number of permutations is always an integer hence (3n)!/$2^{n}$*$3^{n}$ =3n is an integer\\
+
+\section{}
+
+\textbf{9. Prove that when repetition in the selection of the objects are allowed, then the number
+of ways of selecting r-objects from n-distinct objects is C(n+r-1,r)?}\\
+
+\textbf{SOL:}\\\textbf{Proof:}Distribution of r non-distinct objects into n distinct cells in which each cell can hold any no. of objects.\\Consider n bars and r stars in which we have to arrange by considering hypothesis.\\Since each objects can be taken any number of time,we can write as [x^0+x^1+x^2+....]\\(x^0+x^1+x^2+...)(x^0+x^1+x^2+...)......(x^0+x^1+x^2+...) = (x^0+x^1+x^2+...)^n
+=(1/(1-n))^n\\Selecting r objects from n objects when repetition is allowed = coefficient of x^r in (1/(1-x))^n = (1-x)^-n. = $^(n+r-1)C_r$\\The given statement is equivalent to ordered arrangement of (n-1) bars and r stars.\\ = \\frac{(n+r-1)!}{(n-1)1 * (r)!}\\since arrangement of total of (n+r-1) objects in which (n-1) objects of one kind and r objects of another kind.\\ = $\Mycomb[n+r-1]{n-1}$\\ = $\Mycomb[n+r-1]{r}$\\Hence proved.\\
+
+\section{}
+
+\textbf{10. In how many ways can we distribute 7 apples and 6 oranges among four children?}\\
+
+\textbf{SOL:}\\No. of ways in which 7 apples are distributed among 4 children is $\Mycomb[7+4-1]{4}$ =210
+No. of ways in which 6 oranges are distributed among 4 children is  $\Mycomb[6+4-1]{4}$ =126\\
+ the total no. of ways in which 7 apples&6oranges are distributed among 4 children is 210X126=26460.\\
+
+
+\section{}
+
+\textbf{11.Five distinct letters are to be transmitted through a communication channel. A total of
+15 blanks are to be inserted between the letters with at least three blanks between every
+two letters. In how many ways can the letters and blanks be arranged?}\\
+
+\textbf{SOL:}\\
+The five letters are placed as shown and let there be 3 blanks between each two letters. So, there will be 3 more blanks left. These 3 blanks can take any of the 4 gaps present i.e. there will be 20 possibilities for 3 blanks occupying the 4 spaces between 5 lettters.\\Also the 5 letters can be permutated in 5!  ways.\\ Therefore the total possible permutations= 5!*20 =120*20 =2400.\\
+
+
+\section{}
+
+\textbf{12.Determine the number of ways to seat five boys in a row of 12 chairs?}\\
+
+\textbf{SOL:}No of seats in a row=12\\
+ No of boys to be seated =5\\
+ No of ways the chairs be chosen= $^(12)C_5$\\
+ The 5 boys can be permutated among themselves in 5! ways.\\
+ Therefore the total posssible arrangements=5!*($^(12)C_5$)
+                                           =120*792
+                                           =95040.
+
+
+\section{}
+
+\textbf{13.When three dice (indistinguishable) are rolled. Find the number of possible outcome?}\\
+
+\textbf{SOL:}When the three dice (indistinguishable) are rolled, then the possible number of outcomes will be
+      $\Mycomb[n+r-1]{r}$=56.Since, here n=6 and r=3.\\
+
+
+\section{}
+
+\textbf{14. When three dice (distinguishable) are rolled. Find the number of possible outcome?}\\
+
+\textbf{SOL:}\\No of posssible outcomes when a dice is rolled is 6\\ Given that 3 distinguishable dice are rolled so the no of possible outcomes is 6*6*6=216\\
+
+
+
+\section{}
+
+\textbf{15.How many solutions are there to the equation
+x1 + x2 + x3 + x4 + x5 = 21 where xi; i = 1; 2; 3; 4; 5; is a nonnegative integer such that
+(a) xi \geq 0 for i = 1; 2; 3; 4; 5 (b) x1 \geq1?
+(c) 0 \leq xi \leq 2 for i = 1; 2; 3; 4; 5?
+(c) 2 \leq xi \leq 10? for i = 1; 2; 3; 4; 5??}\\
+
+\textbf{SOL:}\\Given x1+x2+x3+x4+x5=21\\
+ a) Xi \geq 0:\\
+      No. of solutions = $^(21+5-1)C_21$
+                       = 12650\\
+ b) Xi \geq 1:\\
+           (x1-1)+(x2-1)+(x3-1)+(x4-1)+(x5-1)=21-1
+                                            =20\\
+           \\No. of solutions = $^(20+5-1)C_20$
+                            = 10626\\
+
+ c) 0 \leq Xi \leq 2:\\
+             x1,x2,x3,x4,x5 = (x^0 + x^1 + x^2).(x^0 + x^1 + x^2).
+                              (x^0 + x^1 + x^2).(x^0 + x^1 + x^2).
+                              (x^0 + x^1 + x^2)
+                            = (x^0 + x^1 + x^2)^5
+                            = (1 + x^1 + x^2)^5
+                            = [1(x^3 -1)/2]^5
+                            = 1/32[x^3 -1]^5\\
+                            this does not contain the coefficient of x^21
+    it has zero solutions\\\\
+ d)   solution 15(d):
+
+2<= $x_i$<=10 for i=1,2,3,4,5
+   $x_1$,$x_2$,$x_3$,$x_4$,$x_5$=[x^2 +x^3 +....+x^10]^5
+                                                       =[x^2{1+x+........+x^8}]^5\\
+    =[x^2{1+x+........+x^8}]^5\\
+                                                       =[x^10(1+x+.....+x^8)^5]\\It is in G.P\\
+                            
+                                                       =[x^10{(1-x^9)/(1-x)}^5]\\
+                                                       =x^10[1-x^9]^5[1-x]^-5\\
+                                                       =x^10[coef of x^11 in {1-x^9}^5{1-x}^-5]\\
+                                              =x^10[coef of x^11 in {1-5x^9}{15x^2+......+1365x^11}]\\
+                                                       =x^10[coef of x^11 in{-75x^11+1365x^11} \\
+                                                       =coef of x^21 in [-75x^21 + 1365x^21]\\
+                                                       =coef of x^21 in[1290 x^21]\\
+                                                       =1290
+ 
+     no. of solutions are 1290\\
+
+
+
+
+\section{}
+
+\textbf{16. How many ways n-books be placed on k-distinguishable shelves (positions of the books
+on the shelves matters)?}\\
+
+\textbf{SOL:}\\n books are to be placed in k distinguishable shelfs.\\
+The book 1 can be placed in k shells.\\
+For book 2 we have (k+1) i.e. (k+2-1) ways. Similarly for book 3 we have (k+3-1) ways . For n th book we will have (k+n-1) ways.\\
+Therfore the total ways of ways in n books be placed in k distinguishable shelfs is = k(k+1)(k+2)(k+3)...(k+n-1).\\
+
+
+\section{}
+
+\textbf{17. Find the number of times x = x + 1 is executed by each loop: After this generalize this
+formula for r loops.
+for (i = 1 to n) do\\
+for (j = 1 to i) do\\
+for (k = 1 to j) do\\
+x = x + 1}\\
+
+\textbf{SOL:}\\for j=1 to i\\ k=i to j \\ upper part will have the ways = $^(i+1)C_2 $ Then,N for k= $^(1+1)C_2$ + $^(2+1)C_2$ +...........+ $^(n+1)C_2$ \\ = $^(n+2)C_3$\\
+
+
+\section{}
+
+\textbf{18. In how many ways can 15 people be seated at a round table if B refuses to sit next to
+A?What if B only refuses to sit on A's right?}\\
+
+\textbf{SOL:}\\ The total no. of ways that 15 people can  be seated at a round table \\
+      a)if B refuses to sit next to A is \\
+       sol: 14!-2*(13!) \\
+       b)if B only refuses to sit on A’s right\\
+        sol:half of the ways in which  a) is arranged\\
+				={14!-2*(13!)}/2\\
+
+
+\section{}
+
+\textbf{19. Find the number of paths in the xy plane between the origin (0, 0) and point (m, n),
+where m and n are nonnegative integers, such that each path is made up of a series of
+steps, where each step is a move one unit to the right or a move one unit upward. (No
+moves to the left or downward are allowed.) Also find the number of paths which does
+not raise above the line y = x.}\\
+
+\textbf{SOL:}\\Start from (0,0) to (m,n) in co-ordinate system such that each path is made up of a series of steps, where each step is a move one unit to the right or a move one unit upward below the line y=x.\\One can move in either the m right steps or the n upsteps .\\so,
+ No of paths with only right and up steps= (m+n)!/m!*n!\\ One crosses the y=x line if the number of up steps and right steps number is unequal.\\ so, No. of paths which are below y=x line= [(m+n)!/m!*n!]-[(m+n)!/(m+1)!*(n-1)!]
+
+\section{}
+
+\textbf{20. Find the number of ways to parenthesize the n-matrices?}
+
+\textbf{SOL:}\\Let A1,A2,A3,A4 be four matrix\\
+possible ways of parenthesize are \\
+(A1A2)(A3A4)\\((A1(A2A3)A4)\\(A1((A2A3)A4))\\(A1(A2(A3A4)))\\
+Now,let us let us try represent above pattern as '(Ai' till  'Ai)' is encountered as\\
+(A1A2)(A3A4)$\Rightarrow$((A1A2(A3\\
+\\ ((A1(A2A3)A4) $\Rightarrow$ ((A1(A2 \\
+\\ (A1((A2A3)A4)) $\Rightarrow$ (A1((A2\\
+\\ (A1(A2(A3A4))) $\Rightarrow$ (A1(A2(A3\\
+\\And now we know that \\
+\\for example ((A1A2(A3 $\Rightarrow$ (A1A2)(A3A4) is a unique solution \\
+\\let '(' be 1 and Ai be 0\\
+\\therefore, ((A1A2(A3 $\Rightarrow$ 110010\\
+\\and ((A1(A2 $\Rightarrow$ 11010\\
+\\hence,no. of 1 $\geq$ no. of 0\\
+\\Generalising we get catalan no.  $\Rightarrow$ 1/(n+1) $\Mycomb[2]{n}$\\
+
+
+\section{}
+
+\textbf{21. Find the number of paths in the xy plane from the point (2, 1) to the point (7, 6) which
+does not rise above the line y = x - 1 , such that each path is made up of a series of
+steps, where each step is a move one unit to the right or a move one unit upward. (No
+moves to the left or downward are allowed.)?}
+
+\textbf{SOL:}\\Start from (2,1) to (7,6) in co-ordinate system which does not rise above the line y = x - 1 such that ,we have to move one unit forward(EAST) or upward(NORTH) below the line y=x-1\\There are in all (5,5) steps between  the point (2, 1) to the point (7, 6) hence let us consider movement from (0,0) to (5,5) hence ,\\
+by using catalan number we get paths below line y=x-1 \\
+ie.1/(n+1) $\Mycomb[2n]{n}$ =here n=5\\
+$\Longrightarrow$  1/(5+1) $\Mycomb[2*5]{5}$ $\Longrightarrow$ 1/(6) $\Mycomb[10]{5}$ = 42 paths.\\
+
+
+
+\section{}
+
+\textbf{22. Show that any integer composed of 3^n identical digits is divisible by 3^n.}
+
+\textbf{SOL:}\\We should prove that any integer of \3^n identical digits is divisible by 3^n\\
+   Assume that statement is true for n=m\\
+   prove that it is true for n=m+1\\
+    (3^m)*3 = 3^(m+1) identical objects is divisible by 3^(m+1)\\
+    (3^m)*3 = 3^m  + 3^m  +  3^m\\
+              3^m digits  3^m digits  3^m digits\\
+             
+consist of 3^(m+1) digits = [consist of 3^m]* 10^(2*{3}^m)
+                           +[consist of 3^m]* 10^({3}^m)
+                           +[consist of 3^m]* 10^0\\
+                          =[consist of 3^m]*[10^(2*{3}^m) + 10^({3}^m)+1]
+                          it is divisible by 3^m\\
+
+ An integer is divisible by 3 if sum of digits in the integer  is divisible by 3.\\
+
+
+
+
+
+\section{}
+
+\textbf{23. How many integers between 1 and 1000 are not divisible by any of 2, 3, 11, 13?}
+
+\textbf{SOL:}\\All divisible by 1000\\
+n(a) = numbers divisible by 2 =500\\
+n(b) = numbers divisible by 3 =333\\
+n(c) = numbers divisible by 11=90\\
+n(d) = numbers divisible by 13=76\\
+n(A $\cap$ B) = divisible by 6 = 166\\
+n(A $\cap$ C) = divisible by 22 = 45\\
+n(A $\cap$ D) = divisible by 26= 38 \\
+n(B $\cap$ C) = divisible by 33 = 30\\
+n(B $\cap$ D) = divisible by 143 = 6\\
+n(A $\cap$ B $\cap$ C) = divisible by 66 =15\\
+n(A $\cap$ B $\cap$ D)= divisible by 78 = 12\\
+n(A $\cap$ C $\cap$ D) = divisible by 286 = 3\\
+ n(B $\cap$ C $\cap$ D ) = divisible by 429 =2\\
+n(A $\cap$ B $\cap$ C $\cap$ D ) = divisible by  +858 = 1\\
+by inclusion and exclusion principle,\\
+1000 -500 – 333 90 -76 +166 +45 +38 +30 +25 +6 -12 -15 -3 – 2+ 1 = \\
+=1000 – 999 +310 -32 + 1\\
+=280\\If we exclude 1 and 1000,The result will be 280-2=278\\If we include 1 and 1000,The result will be 280\\
+
+
+
+
+
+\section{}
+
+\textbf{24.Using inclusion and exclusion principles, find the number of primes less than 150?}
+
+\textbf{SOL:}BY USING INCLUSION AND EXCLUSION PRINCIPLE:\\Let A, B, C, and D be the sets of integers upto 150 which are divisible by 2, by 3, by 5, and by 7, respectively. We want (A $\cup$ B $\cup$ C $\cup$ D)\\
+. Now\\
+(A $\cup$ B $\cup$ C $\cup$ D) = (A) + (B) + (C) + (D) − (A $\cap$ B) − (A $\cap$ C) − (A $\cap$ D) − (B $\cap$C) − (B $\cap$D) − (C $\cap$ D) + (A $\cap$ B $\cap$ C) + (A $\cap$ B $\cap$ D) + (A $\cap$ C $\cap$ D) + (B $\cap$ C $\cap$ D) − (A $\cap$ B $\cap$ C $\cap$ D)\\
+We have\\
+(A) = 150/2 =75\\
+(B) = 150/3 = 50\\
+(C) = 150/5 =30\\
+(D) = 150/7 = 21\\
+(A $\cap$ B) = 150/2*3 = 25\\
+(A $\cap$ C) = 150/2*5 = 15\\
+(A $\cap$ D) = 150/2*7 = 10\\
+(B $\cap$ C) = 150/3*5 = 10\\
+(B $\cap$ D) = 150/3*7 = 7\\
+(C $\cap$ D) = 150/5*7 = 4\\
+(A $\cap$ B $\cap$ C) = 150/2*3*5 = 5\\
+(A $\cap$ B $\cap$ D) = 150/2*3*7 = 3\\
+(A $\cap$ C $\cap$ D) = 150/2*5*7 = 2\\
+(B $\cap$ C $\cap$ D) = 150/3*5*7 = 1\\
+(A $\cap$ B $\cap$ C $\cap$ D) = 0\\
+(A $\cup$ B $\cup$ C $\cup$ D) = 114\\
+The number of primes less than 150 $\Longrightarrow$ 150-114 =36\\
+
+
+
+\section{}
+
+\textbf{25. Find the number of permutations of the letters a,b,c,d,e, and f in which neither the
+pattern ace nor the pattern fd appears?}
+
+\textbf{SOL:}\\Total permutations of a,b,c,d,e,f =6!\\
+No of permutations containing ace= 4!\\
+No of permutations containing fd= 5!\\
+No of permutations containing ace and fd= 3!\\
+Required permutations containing neither ace nor fd =6!-(5!+4!-3!)\\
+=720-(120+24-6)\\
+=720-138\\
+=582.\\
+
+
+\section{}
+
+\textbf{26. Find the number of permutations of the 26 letters A,B,...,X,Y,Z that do not contain the
+patterns JOHN, PAUL and SMITH?}
+
+\textbf{SOL:}\\Given the total alphabets =26\\
+The possible permutations=26!\\
+Given that the permutations should'nt contain JOHN,PAUL and SMITH\\
+ No of  permutations containing JOHN= 23!\\
+ No of  permutations containing PAUL= 23!\\
+ No of  permutations containing SMITH= 22!\\
+ No of  permutations containing JOHN and PAUL=20!\\
+ No of  permutations containing JOHN and SMITH= 0\\
+ No of  permutations containing PAUL and SMITH= 19!\\
+ No of  permutations containing JOHN,PAUL and SMITH=0\\
+ Total permutations containing JOHN,PAUL and SMITH=23!+23!+22!-20!-0-19!-0+0\\
+ The permutations should'nt contain JOHN,PAUL and SMITH=26!-(23!*2+22!-20!-19!)\\
+
+\section{}
+
+\textbf{27. Let n books be distributed to n children. The books are returned and distributed to the
+children again later on. In how many ways can the books be distributed so that no child
+will get same book twice?}
+
+\textbf{SOL:}\\
+  Given n books be distributed to n children. The books are returned and distributed to the
+children again later on. \\
+No of ways in which n books distributed to n students=n!\\
+No many ways can the books be distributed so that no child
+will get same book twice= n!*(Dearrangements of n)\\
+                        =($D_n$)*n!\\
+                        =n!{n!-[($^(n)_1$)(n-1)!-($^(n)_2$)(n-2)!+.....]}\\
+												
+
+\section{}
+
+\textbf{28. In how many ways can the letters a,a,a,a,b,b,b,c and c can be arranged so that all the
+letters of the same kind are not in the same block?}
+
+\textbf{SOL:}\\Total permutation of a,a,a,a,b,b,b,c,c is similar to permutation of n-digit number in which all no. are not different ) =9!/(4!*3!*2!)\\
+=1260\\
+Let u be the number of ways arranging the letters  4a’s (a,a,a,a)  3b’s (b,b,b) and 2c’s (c,c) in a single block \\
+Let u be the total ways of arranging all the elements\\  
+U  = $\frac{9!}{4!*3!*2!}$  =1260\\
+\\
+Let A1 be 4 a’s together \\
+A1= $\frac{6!}{1!*3!*2!}$ = 60\\
+\\
+Let A2 be 3b’s together\\
+A2 = $\frac{7!}{1!*4!*2!}$  = 105\\
+\\
+LET A3 be 2c’stogether\\
+A3 = $\frac{8!}{4!*3!*2!}$  = 280\\
+\\
+A  and B together \\
+(A1 $\cap$ A2) =$\frac{3!}{1!*1!*2!}$ =3\\
+\\
+A and C TOGETHER \\
+\\
+(A1 $\cap$ A3) = $\frac{4!}{1!*3!}$ = 4\\
+\\  
+B and C together \\
+(A2 $\cap$ A3) = $\frac{5!}{4!}$ = 5\\
+\\
+Hence ,\\
+\\
+The answer is total – together cases\\
+\\
+=1260 – {60 + 105 +280} + 3 + 4 +5 -6\\
+\\ 
+=821\\
+
+
+
+\section{}
+
+\textbf{29. In how many ways can the integers 1,2,3,4,5,6,7,8 and 9 be permuted such that no odd
+integers will be in its natural position?}
+
+\textbf{SOL:}\\
+
+Given 1,2,3,...,9 are integers
+in this odd integers should not be in its natural position
+   Derrangements of 5 odd integers is
+                       = 5!-[$^(5)C_1${4!} + $^(5)C_2${3!} + $^(5)C_3${2!} + $^(5)C_4${1!}]\\
+                       =120-[120-180+60-5]\\
+                       =125\\
+No. of ways in which even integers will be aranged is = 4!\\
+    Total no. of ways = 125(4!)
+                      = 125(24)
+                      = 3000\\
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
